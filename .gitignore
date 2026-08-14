@@ -1,0 +1,32 @@
+# Binaries and test artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Dependency directory
+vendor/
+
+# Documentation site build artifacts
+doc/node_modules/
+doc/docs/.vuepress/.cache/
+doc/docs/.vuepress/.temp/
+doc/docs/.vuepress/dist/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

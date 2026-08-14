@@ -1,0 +1,52 @@
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  default: none
+  enable:
+    - errcheck      # unchecked errors
+    - govet         # go vet on steroids
+    - ineffassign   # ineffectual assignments
+    - staticcheck   # includes gosimple/stylecheck since v2
+    - unused        # unused code
+    - revive        # golint successor
+    - misspell      # commonly misspelled words in comments
+    - goconst       # repeated literals that should be constants
+    - unconvert     # unnecessary type conversions
+  settings:
+    errcheck:
+      # A few stdlib calls are safe to ignore.
+      exclude-functions:
+        - (io.Closer).Close
+        - fmt.Print
+        - fmt.Println
+        - fmt.Printf
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
+    revive:
+      rules:
+        - name: exported
+          disabled: true # doc comments are enforced selectively; avoid mass noise
+        - name: var-naming
+        - name: package-comments
+          disabled: true
+  exclusions:
+    rules:
+      # Tests may use dot imports, long functions, etc.
+      - path: _test\.go
+        linters:
+          - goconst
+          - errcheck
+      # CFB mode is intentionally provided for compatibility with Java
+      # Hutool's AES support; the functions are documented as unauthenticated.
+      - path: crypto/aes\.go
+        text: "NewCFBEncrypter|NewCFBDecrypter"
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
