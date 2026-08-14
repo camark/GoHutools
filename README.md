@@ -1,16 +1,19 @@
 # GoHutool
 
+**中文** | [English](README.en.md)
+
 Go 版本的 [Hutool](https://github.com/dromara/hutool) 工具库，功能对标 Java 版 Hutool，使用 Go 泛型实现。
 
-[![Go Version](https://img.shields.io/badge/Go-1.21+-blue.svg)](https://golang.org)
+[![CI](https://img.shields.io/github/actions/workflow/status/camark/GoHutools/ci.yml?branch=main&logo=github)](https://github.com/camark/GoHutools/actions/workflows/ci.yml)
+[![Go Version](https://img.shields.io/badge/Go-1.25+-00ADD8.svg?logo=go)](https://golang.org)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 
 ## 特性
 
-- 🚀 **Go 泛型**：充分利用 Go 1.21+ 泛型特性
+- 🚀 **Go 泛型**：充分利用 Go 泛型特性
 - 📦 **模块化设计**：按需引入，不臃肿
-- 🔒 **并发安全**：涉及共享状态的工具保证 goroutine 安全
-- ✅ **测试完备**：所有模块均有完整单元测试
+- 🔒 **并发安全**：涉及共享状态的工具保证 goroutine 安全，CI 全程开启 `-race` 检测
+- ✅ **测试完备**：所有模块均有完整单元测试，golangci-lint 严格把关
 - 🎯 **Go 风格 API**：遵循 Go 命名规范，不照搬 Java
 
 ## 安装
@@ -227,12 +230,25 @@ validate.IsIPv4("192.168.1.1")          // true
 ## 统计
 
 - **27 个功能模块**
-- **500+ 个工具函数**
-- **全面的单元测试覆盖**
+- **880+ 个导出函数与方法**
+- **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
+
+## 开发
+
+```bash
+# 运行全部测试
+go test ./...
+
+# 带竞态检测
+go test -race ./...
+
+# 静态检查（需安装 golangci-lint v2）
+golangci-lint run ./...
+```
 
 ## 许可证
 
-Apache License 2.0
+[Apache License 2.0](LICENSE)
 
 ## 致谢
 
