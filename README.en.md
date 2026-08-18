@@ -50,6 +50,7 @@ go get github.com/camark/GoHutools
 | Module | Description | Hutool counterpart |
 |--------|-------------|--------------------|
 | `httpclient` | HTTP client | HttpUtil |
+| `htmlutil` | HTML tools (escape/filter/tag cleanup) | HtmlUtil |
 | `jsonutil` | JSON utilities | JSONUtil |
 
 ### Phase 4: Security & encoding
@@ -261,7 +262,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **44 modules**
+- **45 modules**
 - **1000+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 

@@ -50,6 +50,7 @@ go get github.com/camark/GoHutools
 | 模块 | 说明 | 对标 Hutool |
 |------|------|------------|
 | `httpclient` | HTTP 客户端 | HttpUtil |
+| `htmlutil` | HTML 工具 (转义/过滤/标签清理) | HtmlUtil |
 | `jsonutil` | JSON 工具 | JSONUtil |
 
 ### Phase 4: 安全与编码
@@ -263,7 +264,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **44 个功能模块**
+- **45 个功能模块**
 - **1000+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 
