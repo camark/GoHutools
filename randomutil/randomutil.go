@@ -12,7 +12,7 @@ import (
 // ---------------------------------------------------------------------------
 
 // Int generates a cryptographically secure random int in [0, max).
-// Returns an error if max <= 0 or if reading from crypto/rand fails.
+// Returns 0 if max <= 0.
 func Int(max int) (int, error) {
 	if max <= 0 {
 		return 0, nil
@@ -25,7 +25,7 @@ func Int(max int) (int, error) {
 }
 
 // IntRange generates a cryptographically secure random int in [min, max).
-// Returns an error if min >= max or if reading from crypto/rand fails.
+// Returns 0 if min >= max.
 func IntRange(min, max int) (int, error) {
 	if min >= max {
 		return 0, nil
@@ -56,6 +56,7 @@ func MustIntRange(min, max int) int {
 }
 
 // Int64 generates a cryptographically secure random int64 in [0, max).
+// Returns 0 if max <= 0.
 func Int64(max int64) (int64, error) {
 	if max <= 0 {
 		return 0, nil
@@ -68,6 +69,7 @@ func Int64(max int64) (int64, error) {
 }
 
 // Int64Range generates a cryptographically secure random int64 in [min, max).
+// Returns 0 if min >= max.
 func Int64Range(min, max int64) (int64, error) {
 	if min >= max {
 		return 0, nil
@@ -265,7 +267,7 @@ func Shuffle[T any](slice []T) []T {
 // ---------------------------------------------------------------------------
 
 // Weighted picks a random index based on weights. Higher weight means higher probability.
-// Returns an error if the weights slice is empty or the total weight is 0.
+// Returns 0 if the weights slice is empty or the total weight is 0.
 func Weighted(weights []int) (int, error) {
 	if len(weights) == 0 {
 		return 0, nil

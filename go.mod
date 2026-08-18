@@ -1,4 +1,4 @@
-module github.com/gongm/gohutool
+module github.com/camark/GoHutools
 
 go 1.25.0
 

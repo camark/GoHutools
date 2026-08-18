@@ -9,7 +9,7 @@ ID 生成工具包，提供 UUID、Snowflake、ULID、NanoID、ObjectID、序列
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/idutil"
+import "github.com/camark/GoHutools/idutil"
 ```
 
 ## UUID
@@ -346,7 +346,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/idutil"
+    "github.com/camark/GoHutools/idutil"
 )
 
 func main() {

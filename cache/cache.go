@@ -155,8 +155,8 @@ func (c *LRUCache) Keys() []string {
 
 // Contains checks if a key exists in the LRU cache
 func (c *LRUCache) Contains(key string) bool {
-	c.mu.RLock()
-	defer c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
 	elem, ok := c.items[key]
 	if !ok {
@@ -164,6 +164,8 @@ func (c *LRUCache) Contains(key string) bool {
 	}
 	item := elem.Value.(*lruItem)
 	if item.hasExpire && time.Now().After(item.expireAt) {
+		c.order.Remove(elem)
+		delete(c.items, key)
 		return false
 	}
 	return true
@@ -205,12 +207,14 @@ func NewFIFO(capacity int) *FIFOCache {
 
 // Get retrieves an item from the FIFO cache
 func (c *FIFOCache) Get(key string) (interface{}, bool) {
-	c.mu.RLock()
-	defer c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
 	if elem, ok := c.items[key]; ok {
 		item := elem.Value.(*fifoItem)
 		if item.hasExpire && time.Now().After(item.expireAt) {
+			c.order.Remove(elem)
+			delete(c.items, key)
 			return nil, false
 		}
 		return item.value, true
@@ -310,8 +314,8 @@ func (c *FIFOCache) Keys() []string {
 
 // Contains checks if a key exists in the FIFO cache
 func (c *FIFOCache) Contains(key string) bool {
-	c.mu.RLock()
-	defer c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
 	elem, ok := c.items[key]
 	if !ok {
@@ -319,6 +323,8 @@ func (c *FIFOCache) Contains(key string) bool {
 	}
 	item := elem.Value.(*fifoItem)
 	if item.hasExpire && time.Now().After(item.expireAt) {
+		c.order.Remove(elem)
+		delete(c.items, key)
 		return false
 	}
 	return true
@@ -482,14 +488,15 @@ func (c *LFUCache) Keys() []string {
 
 // Contains checks if a key exists in the LFU cache
 func (c *LFUCache) Contains(key string) bool {
-	c.mu.RLock()
-	defer c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
 	item, ok := c.items[key]
 	if !ok {
 		return false
 	}
 	if item.hasExpire && time.Now().After(item.expireAt) {
+		c.removeItem(item)
 		return false
 	}
 	return true
@@ -579,18 +586,33 @@ func NewTimed(defaultExpire time.Duration) *TimedCache {
 	return c
 }
 
+// Close stops the background cleanup goroutine and clears all items.
+// The cache must not be used after Close is called.
+func (c *TimedCache) Close() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	select {
+	case <-c.stopCleanup:
+		// already closed
+	default:
+		close(c.stopCleanup)
+	}
+	c.items = make(map[string]*timedItem)
+}
+
 // Get retrieves an item from the TimedCache
 func (c *TimedCache) Get(key string) (interface{}, bool) {
-	c.mu.RLock()
-	item, ok := c.items[key]
-	c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
+	item, ok := c.items[key]
 	if !ok {
 		return nil, false
 	}
 
 	if time.Now().After(item.expireAt) {
-		c.Delete(key)
+		delete(c.items, key)
 		return nil, false
 	}
 
@@ -660,16 +682,16 @@ func (c *TimedCache) Keys() []string {
 
 // Contains checks if a key exists in the TimedCache
 func (c *TimedCache) Contains(key string) bool {
-	c.mu.RLock()
-	item, ok := c.items[key]
-	c.mu.RUnlock()
+	c.mu.Lock()
+	defer c.mu.Unlock()
 
+	item, ok := c.items[key]
 	if !ok {
 		return false
 	}
 
 	if time.Now().After(item.expireAt) {
-		c.Delete(key)
+		delete(c.items, key)
 		return false
 	}
 

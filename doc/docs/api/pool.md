@@ -9,7 +9,7 @@ title: Pool
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/pool"
+import "github.com/camark/GoHutools/pool"
 ```
 
 ## 通用对象池
@@ -240,7 +240,7 @@ import (
     "fmt"
     "sync"
 
-    "github.com/gongm/gohutool/pool"
+    "github.com/camark/GoHutools/pool"
 )
 
 type Request struct {

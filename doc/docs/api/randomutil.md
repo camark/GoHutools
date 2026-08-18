@@ -9,7 +9,7 @@ title: randomutil
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/randomutil"
+import "github.com/camark/GoHutools/randomutil"
 ```
 
 ## 整数随机
@@ -525,7 +525,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/randomutil"
+    "github.com/camark/GoHutools/randomutil"
 )
 
 func main() {

@@ -78,8 +78,14 @@ func Sub(s string, start, end int) string {
 	if start < 0 {
 		start = 0
 	}
+	if end < 0 {
+		end = 0
+	}
 	if end > length {
 		end = length
+	}
+	if start > length {
+		start = length
 	}
 	if start > end {
 		start = end

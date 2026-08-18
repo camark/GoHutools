@@ -9,7 +9,7 @@ title: arrayutil - 数组工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/arrayutil"
+import "github.com/camark/GoHutools/arrayutil"
 ```
 
 ## 类型定义

@@ -1,7 +1,9 @@
 package collutil
 
 import (
+	"math"
 	"testing"
+	"time"
 )
 
 func TestIsEmpty(t *testing.T) {
@@ -610,5 +612,17 @@ func TestRangeWithStep(t *testing.T) {
 	result = RangeWithStep(0, 10, 0)
 	if len(result) != 0 {
 		t.Error("RangeWithStep should return empty for step 0")
+	}
+
+	// Integer overflow must not cause an infinite loop (regression)
+	done := make(chan struct{})
+	go func() {
+		defer close(done)
+		RangeWithStep(math.MaxInt-1, math.MaxInt, 2)
+	}()
+	select {
+	case <-done:
+	case <-time.After(2 * time.Second):
+		t.Fatal("RangeWithStep hangs on integer overflow")
 	}
 }

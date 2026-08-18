@@ -9,7 +9,7 @@ title: codec
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/codec"
+import "github.com/camark/GoHutools/codec"
 ```
 
 ## 函数列表
@@ -274,7 +274,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/codec"
+    "github.com/camark/GoHutools/codec"
 )
 
 func main() {

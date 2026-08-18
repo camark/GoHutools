@@ -14,7 +14,7 @@ title: Bloom Filter
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/bloom"
+import "github.com/camark/GoHutools/bloom"
 ```
 
 ## 函数列表
@@ -144,7 +144,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/bloom"
+    "github.com/camark/GoHutools/bloom"
 )
 
 func main() {

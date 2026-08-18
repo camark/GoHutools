@@ -95,10 +95,11 @@ func UnicodeEncode(s string) string {
 	return buf.String()
 }
 
+var unicodeEscapeRegex = regexp.MustCompile(`\\u([0-9a-fA-F]{4})`)
+
 // UnicodeDecode decodes Unicode escape
 func UnicodeDecode(s string) (string, error) {
-	re := regexp.MustCompile(`\\u([0-9a-fA-F]{4})`)
-	result := re.ReplaceAllStringFunc(s, func(match string) string {
+	result := unicodeEscapeRegex.ReplaceAllStringFunc(s, func(match string) string {
 		hexStr := match[2:]
 		var r rune
 		if _, err := fmt.Sscanf(hexStr, "%x", &r); err != nil {

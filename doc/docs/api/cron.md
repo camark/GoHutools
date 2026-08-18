@@ -9,7 +9,7 @@ title: Cron
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/cron"
+import "github.com/camark/GoHutools/cron"
 ```
 
 ## 常量
@@ -199,7 +199,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/cron"
+    "github.com/camark/GoHutools/cron"
 )
 
 func main() {

@@ -9,7 +9,7 @@ IO 工具包，提供便捷的读写、复制、关闭等 IO 操作函数，是�
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/ioutil"
+import "github.com/camark/GoHutools/ioutil"
 ```
 
 ## 函数列表

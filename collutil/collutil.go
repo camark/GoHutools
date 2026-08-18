@@ -468,8 +468,14 @@ func RangeWithStep(start, end, step int) []int {
 		return []int{}
 	}
 	var result []int
-	for i := start; (step > 0 && i < end) || (step < 0 && i > end); i += step {
+	for i := start; (step > 0 && i < end) || (step < 0 && i > end); {
 		result = append(result, i)
+		next := i + step
+		// Stop on integer overflow to avoid an infinite loop
+		if (step > 0 && next < i) || (step < 0 && next > i) {
+			break
+		}
+		i = next
 	}
 	return result
 }

@@ -377,6 +377,9 @@ func TestGCD(t *testing.T) {
 		{0, 0, 0},
 		{-12, 8, 4},
 		{12, -8, 4},
+		{math.MinInt64, 0, math.MinInt64},
+		{math.MinInt64, 1, 1},
+		{math.MinInt64, math.MinInt64, math.MinInt64},
 	}
 	for _, tt := range tests {
 		if got := GCD(tt.a, tt.b); got != tt.want {
@@ -396,6 +399,8 @@ func TestLCM(t *testing.T) {
 		{0, 5, 0},
 		{5, 0, 0},
 		{1, 1, 1},
+		// a*b overflows int64 (16000000024000000000) but real LCM fits: formerly wrong result
+		{4000000000, 4000000006, 8000000012000000000},
 	}
 	for _, tt := range tests {
 		if got := LCM(tt.a, tt.b); got != tt.want {

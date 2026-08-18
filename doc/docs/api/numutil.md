@@ -9,7 +9,7 @@ title: numutil - 数值工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/numutil"
+import "github.com/camark/GoHutools/numutil"
 ```
 
 ## 函数列表

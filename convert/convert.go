@@ -397,8 +397,8 @@ func NumberToChinese(n int64, isUseTraditional bool) string {
 	simpleUnits := []string{"", "十", "百", "千"}
 	traditionalUnits := []string{"", "拾", "佰", "仟"}
 
-	simpleSections := []string{"", "万", "亿", "兆"}
-	traditionalSections := []string{"", "萬", "億", "兆"}
+	simpleSections := []string{"", "万", "亿", "兆", "京"}
+	traditionalSections := []string{"", "萬", "億", "兆", "京"}
 
 	digits := simpleDigits
 	units := simpleUnits
@@ -410,10 +410,17 @@ func NumberToChinese(n int64, isUseTraditional bool) string {
 	}
 
 	if n < 0 {
-		return "负" + NumberToChinese(-n, isUseTraditional)
+		// Use the absolute value as an unsigned magnitude so that
+		// math.MinInt64 does not overflow when negated.
+		return "负" + numberToChineseMagnitude(uint64(-n), digits, units, sections)
 	}
 
-	s := strconv.FormatInt(n, 10)
+	return numberToChineseMagnitude(uint64(n), digits, units, sections)
+}
+
+// numberToChineseMagnitude converts a non-negative magnitude to Chinese.
+func numberToChineseMagnitude(n uint64, digits, units, sections []string) string {
+	s := strconv.FormatUint(n, 10)
 	length := len(s)
 
 	// Pad to multiple of 4
@@ -477,6 +484,7 @@ func ChineseToNumber(chinese string) (int64, error) {
 		'万': 10000, '萬': 10000,
 		'亿': 100000000, '億': 100000000,
 		'兆': 1000000000000,
+		'京': 10000000000000000,
 	}
 
 	if chinese == "负" {
@@ -498,7 +506,11 @@ func ChineseToNumber(chinese string) (int64, error) {
 			current = val
 		} else if unit, ok := unitMap[r]; ok {
 			if unit >= 10000 {
+				// Large units (万/亿/兆/京): flush the current section
+				// into result and start a new section.
 				section = (section + current) * unit
+				result += section
+				section = 0
 				current = 0
 			} else {
 				if current == 0 {
@@ -512,7 +524,7 @@ func ChineseToNumber(chinese string) (int64, error) {
 		}
 	}
 
-	result = section + current
+	result += section + current
 
 	if negative {
 		result = -result

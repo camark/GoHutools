@@ -9,7 +9,7 @@ title: ObjectUtil
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/objectutil"
+import "github.com/camark/GoHutools/objectutil"
 ```
 
 ## 空值判断
@@ -322,7 +322,7 @@ import (
     "fmt"
     "reflect"
 
-    "github.com/gongm/gohutool/objectutil"
+    "github.com/camark/GoHutools/objectutil"
 )
 
 func main() {

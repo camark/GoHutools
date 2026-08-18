@@ -47,6 +47,17 @@ func TestContainsValue(t *testing.T) {
 	}
 }
 
+func TestContainsValueNonComparable(t *testing.T) {
+	// V is []int, which is not comparable - must not panic
+	m := map[string][]int{"a": {1, 2}, "b": {3}}
+	if !ContainsValue(m, []int{1, 2}) {
+		t.Error("expected map to contain []int{1,2}")
+	}
+	if ContainsValue(m, []int{9}) {
+		t.Error("expected map to not contain []int{9}")
+	}
+}
+
 func TestGet(t *testing.T) {
 	m := map[string]int{"a": 1, "b": 2}
 	if v := Get(m, "a", 0); v != 1 {

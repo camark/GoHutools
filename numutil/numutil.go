@@ -167,18 +167,23 @@ func IsZero(n int) bool {
 	return n == 0
 }
 
+// uabs returns the absolute value of x as uint64.
+// It uses unsigned arithmetic so that math.MinInt64 does not overflow when negated.
+func uabs(x int) uint64 {
+	if x < 0 {
+		return uint64(0) - uint64(x)
+	}
+	return uint64(x)
+}
+
 // GCD returns greatest common divisor
 func GCD(a, b int) int {
-	if a < 0 {
-		a = -a
+	ua := uabs(a)
+	ub := uabs(b)
+	for ub != 0 {
+		ua, ub = ub, ua%ub
 	}
-	if b < 0 {
-		b = -b
-	}
-	for b != 0 {
-		a, b = b, a%b
-	}
-	return a
+	return int(ua)
 }
 
 // LCM returns least common multiple
@@ -186,7 +191,9 @@ func LCM(a, b int) int {
 	if a == 0 || b == 0 {
 		return 0
 	}
-	return Abs(a*b) / GCD(a, b)
+	g := uint64(GCD(a, b))
+	// Divide first to avoid overflow in a*b
+	return int(uabs(a) / g * uabs(b))
 }
 
 // Factorial returns factorial

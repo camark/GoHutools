@@ -22,21 +22,21 @@ GoHutool 是一个 Go 语言工具库，提供了丰富的实用工具函数，�
 ## 导入方式
 
 ```go
-import "github.com/gongm/gohutool/{package}"
+import "github.com/camark/GoHutools/{package}"
 ```
 
 例如：
 
 ```go
 import (
-    "github.com/gongm/gohutool/strutil"
-    "github.com/gongm/gohutool/numutil"
-    "github.com/gongm/gohutool/collutil"
-    "github.com/gongm/gohutool/maputil"
-    "github.com/gongm/gohutool/arrayutil"
-    "github.com/gongm/gohutool/dateutil"
-    "github.com/gongm/gohutool/convert"
-    "github.com/gongm/gohutool/validate"
+    "github.com/camark/GoHutools/strutil"
+    "github.com/camark/GoHutools/numutil"
+    "github.com/camark/GoHutools/collutil"
+    "github.com/camark/GoHutools/maputil"
+    "github.com/camark/GoHutools/arrayutil"
+    "github.com/camark/GoHutools/dateutil"
+    "github.com/camark/GoHutools/convert"
+    "github.com/camark/GoHutools/validate"
 )
 ```
 
@@ -47,9 +47,9 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/strutil"
-    "github.com/gongm/gohutool/collutil"
-    "github.com/gongm/gohutool/dateutil"
+    "github.com/camark/GoHutools/strutil"
+    "github.com/camark/GoHutools/collutil"
+    "github.com/camark/GoHutools/dateutil"
 )
 
 func main() {

@@ -9,7 +9,7 @@ Map 操作工具包，提供了丰富的 Map 操作函数，包括键值查询�
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/maputil"
+import "github.com/camark/GoHutools/maputil"
 ```
 
 ## 类型定义

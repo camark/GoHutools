@@ -35,7 +35,7 @@ go mod tidy
 
 ## Architecture
 
-- **Module**: `github.com/gongm/gohutool` (single Go module, no sub-modules)
+- **Module**: `github.com/camark/GoHutools` (single Go module, no sub-modules)
 - **Dependencies**: `golang.org/x/text` (charsetutil), `golang.org/x/net` (httpclient)
 - **Package pattern**: Each package is a flat directory with `*.go` and `*_test.go` files
 

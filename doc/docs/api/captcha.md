@@ -9,7 +9,7 @@ title: Captcha
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/captcha"
+import "github.com/camark/GoHutools/captcha"
 ```
 
 ## 基础验证码
@@ -263,7 +263,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/gongm/gohutool/captcha"
+    "github.com/camark/GoHutools/captcha"
 )
 
 func main() {

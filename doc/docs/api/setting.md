@@ -9,7 +9,7 @@ title: Setting
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/setting"
+import "github.com/camark/GoHutools/setting"
 ```
 
 ## 配置文件格式
@@ -349,7 +349,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/setting"
+    "github.com/camark/GoHutools/setting"
 )
 
 func main() {

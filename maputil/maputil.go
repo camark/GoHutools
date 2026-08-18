@@ -1,5 +1,7 @@
 package maputil
 
+import "reflect"
+
 // Entry represents a key-value pair.
 type Entry[K comparable, V any] struct {
 	Key   K
@@ -23,9 +25,10 @@ func ContainsKey[K comparable, V any](m map[K]V, key K) bool {
 }
 
 // ContainsValue checks if map contains value.
+// Uses reflect.DeepEqual for comparison so it works with non-comparable value types.
 func ContainsValue[K comparable, V any](m map[K]V, value V) bool {
 	for _, v := range m {
-		if any(v) == any(value) {
+		if reflect.DeepEqual(v, value) {
 			return true
 		}
 	}

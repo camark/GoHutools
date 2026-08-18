@@ -7,7 +7,7 @@ title: 快速开始
 ## 安装
 
 ```bash
-go get github.com/gongm/gohutool
+go get github.com/camark/GoHutools
 ```
 
 ## 使用示例
@@ -19,7 +19,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/strutil"
+    "github.com/camark/GoHutools/strutil"
 )
 
 func main() {
@@ -36,7 +36,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/collutil"
+    "github.com/camark/GoHutools/collutil"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/httpclient"
+    "github.com/camark/GoHutools/httpclient"
 )
 
 func main() {
@@ -89,7 +89,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/crypto"
+    "github.com/camark/GoHutools/crypto"
 )
 
 func main() {

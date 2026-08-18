@@ -9,7 +9,7 @@ title: dateutil - 日期工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/dateutil"
+import "github.com/camark/GoHutools/dateutil"
 ```
 
 ## 常量

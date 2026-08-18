@@ -9,7 +9,7 @@ title: validate - 验证工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/validate"
+import "github.com/camark/GoHutools/validate"
 ```
 
 ## 函数列表

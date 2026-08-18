@@ -9,7 +9,7 @@ title: strutil - 字符串工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/strutil"
+import "github.com/camark/GoHutools/strutil"
 ```
 
 ## 函数列表

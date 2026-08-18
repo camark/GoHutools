@@ -9,7 +9,7 @@ title: crypto
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/crypto"
+import "github.com/camark/GoHutools/crypto"
 ```
 
 ## 通用函数
@@ -683,7 +683,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/crypto"
+    "github.com/camark/GoHutools/crypto"
 )
 
 func main() {

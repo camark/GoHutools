@@ -18,7 +18,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/cache"
+    "github.com/camark/GoHutools/cache"
 )
 
 type APIResponse struct {
@@ -67,7 +67,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/cache"
+    "github.com/camark/GoHutools/cache"
 )
 
 func main() {
@@ -101,7 +101,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/cron"
+    "github.com/camark/GoHutools/cron"
 )
 
 func main() {
@@ -146,7 +146,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/gongm/gohutool/captcha"
+    "github.com/camark/GoHutools/captcha"
 )
 
 // 简单的内存存储（生产环境请使用 Redis）
@@ -210,7 +210,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/bloom"
+    "github.com/camark/GoHutools/bloom"
 )
 
 func main() {
@@ -246,7 +246,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/bloom"
+    "github.com/camark/GoHutools/bloom"
 )
 
 func main() {
@@ -282,7 +282,7 @@ import (
     "fmt"
     "sync"
 
-    "github.com/gongm/gohutool/pool"
+    "github.com/camark/GoHutools/pool"
 )
 
 type Request struct {
@@ -342,7 +342,7 @@ import (
     "encoding/json"
     "fmt"
 
-    "github.com/gongm/gohutool/pool"
+    "github.com/camark/GoHutools/pool"
 )
 
 var bufPool = pool.NewBufferPool(4096)
@@ -387,7 +387,7 @@ import (
     "net/http"
     "time"
 
-    "github.com/gongm/gohutool/log"
+    "github.com/camark/GoHutools/log"
 )
 
 func loggingMiddleware(next http.Handler) http.Handler {
@@ -429,7 +429,7 @@ func main() {
 package main
 
 import (
-    "github.com/gongm/gohutool/log"
+    "github.com/camark/GoHutools/log"
 )
 
 func main() {
@@ -462,7 +462,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/setting"
+    "github.com/camark/GoHutools/setting"
 )
 
 func main() {
@@ -532,7 +532,7 @@ import (
     "fmt"
     "runtime"
 
-    "github.com/gongm/gohutool/system"
+    "github.com/camark/GoHutools/system"
 )
 
 func main() {
@@ -577,7 +577,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/objectutil"
+    "github.com/camark/GoHutools/objectutil"
 )
 
 type FormData struct {
@@ -632,7 +632,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/regexutil"
+    "github.com/camark/GoHutools/regexutil"
 )
 
 func main() {
@@ -667,7 +667,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/regexutil"
+    "github.com/camark/GoHutools/regexutil"
 )
 
 func main() {
@@ -701,7 +701,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/regexutil"
+    "github.com/camark/GoHutools/regexutil"
 )
 
 type ValidationResult struct {

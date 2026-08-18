@@ -34,8 +34,8 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/strutil"
-    "github.com/gongm/gohutool/collutil"
+    "github.com/camark/GoHutools/strutil"
+    "github.com/camark/GoHutools/collutil"
 )
 
 func main() {

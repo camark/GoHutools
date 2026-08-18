@@ -7,6 +7,7 @@ import (
 	"runtime"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -89,12 +90,12 @@ func NewWithLevel(level Level) Logger {
 }
 
 func (l *defaultLogger) log(level Level, format string, args ...interface{}) {
+	l.mu.Lock()
+	defer l.mu.Unlock()
+
 	if level < l.level {
 		return
 	}
-
-	l.mu.Lock()
-	defer l.mu.Unlock()
 
 	// Get caller information
 	_, file, line, ok := runtime.Caller(2)
@@ -154,71 +155,73 @@ func (l *defaultLogger) GetLevel() Level {
 }
 
 // Global logger functions
-var defaultLoggerInstance Logger
+var defaultLoggerInstance atomic.Pointer[Logger]
 
 func init() {
-	defaultLoggerInstance = New()
+	l := New()
+	defaultLoggerInstance.Store(&l)
 }
 
 // Trace logs at trace level
 func Trace(format string, args ...interface{}) {
-	defaultLoggerInstance.Trace(format, args...)
+	(*defaultLoggerInstance.Load()).Trace(format, args...)
 }
 
 // Debug logs at debug level
 func Debug(format string, args ...interface{}) {
-	defaultLoggerInstance.Debug(format, args...)
+	(*defaultLoggerInstance.Load()).Debug(format, args...)
 }
 
 // Info logs at info level
 func Info(format string, args ...interface{}) {
-	defaultLoggerInstance.Info(format, args...)
+	(*defaultLoggerInstance.Load()).Info(format, args...)
 }
 
 // Warn logs at warn level
 func Warn(format string, args ...interface{}) {
-	defaultLoggerInstance.Warn(format, args...)
+	(*defaultLoggerInstance.Load()).Warn(format, args...)
 }
 
 // Error logs at error level
 func Error(format string, args ...interface{}) {
-	defaultLoggerInstance.Error(format, args...)
+	(*defaultLoggerInstance.Load()).Error(format, args...)
 }
 
 // Fatal logs at fatal level and exits
 func Fatal(format string, args ...interface{}) {
-	defaultLoggerInstance.Fatal(format, args...)
+	(*defaultLoggerInstance.Load()).Fatal(format, args...)
 }
 
 // SetLevel sets the global logger level
 func SetLevel(level Level) {
-	defaultLoggerInstance.SetLevel(level)
+	(*defaultLoggerInstance.Load()).SetLevel(level)
 }
 
 // GetLevel gets the global logger level
 func GetLevel() Level {
-	return defaultLoggerInstance.GetLevel()
+	return (*defaultLoggerInstance.Load()).GetLevel()
 }
 
 // SetOutput sets the global logger output
 func SetOutput(w io.Writer) {
-	defaultLoggerInstance = NewWithOutput(w)
+	l := NewWithOutput(w)
+	defaultLoggerInstance.Store(&l)
 }
 
 // GetLogger returns the global logger
 func GetLogger() Logger {
-	return defaultLoggerInstance
+	return *defaultLoggerInstance.Load()
 }
 
 // SetLogger sets the global logger
 func SetLogger(l Logger) {
-	defaultLoggerInstance = l
+	defaultLoggerInstance.Store(&l)
 }
 
 // WithFields creates logger with fields
 func WithFields(fields map[string]interface{}) Logger {
 	return &fieldLogger{
-		logger: defaultLoggerInstance,
+		logger: *defaultLoggerInstance.Load(),
 		fields: fields,
 	}
 }

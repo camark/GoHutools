@@ -9,7 +9,7 @@ title: fileutil
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/fileutil"
+import "github.com/camark/GoHutools/fileutil"
 ```
 
 ## 函数列表

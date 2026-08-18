@@ -450,6 +450,7 @@ func TestExtractGroupEdgeCases(t *testing.T) {
 	}{
 		{"valid group", "test@example.com", `(\w+)@(\w+)\.(\w+)`, 2, "example"},
 		{"index out of range", "abc", `(\w+)`, 5, ""},
+		{"negative index", "abc", `(\w+)`, -1, ""},
 		{"no match", "abc", `(\d+)`, 1, ""},
 		{"invalid pattern", "abc", `(?:bad`, 0, ""},
 		{"full match group 0", "abc123", `(\w+)(\d+)`, 0, "abc123"},
@@ -539,9 +540,12 @@ func TestIsURL(t *testing.T) {
 		{"http url", "http://example.com", true},
 		{"https url", "https://example.com/path?q=1", true},
 		{"ftp url", "ftp://files.example.com/file.txt", true},
+		{"single char host", "http://x", true},
+		{"ip with port", "http://127.0.0.1:8080", true},
 		{"no scheme", "example.com", false},
 		{"empty string", "", false},
 		{"invalid scheme", "mailto:user@example.com", false},
+		{"scheme only", "http://", false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

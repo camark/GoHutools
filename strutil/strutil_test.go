@@ -195,6 +195,8 @@ func TestSub(t *testing.T) {
 		{"hello", 0, 10, "hello"},
 		{"hello", 5, 3, ""},
 		{"hello", -10, 2, "he"},
+		{"hello", 0, -10, ""},
+		{"hello", 2, -10, ""},
 		{"", 0, 0, ""},
 	}
 

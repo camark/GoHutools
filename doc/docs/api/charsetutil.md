@@ -9,7 +9,7 @@ title: charsetutil
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/charsetutil"
+import "github.com/camark/GoHutools/charsetutil"
 ```
 
 ## 常量

@@ -9,7 +9,7 @@ title: RegexUtil
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/regexutil"
+import "github.com/camark/GoHutools/regexutil"
 ```
 
 ## 正则匹配
@@ -488,7 +488,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/regexutil"
+    "github.com/camark/GoHutools/regexutil"
 )
 
 func main() {

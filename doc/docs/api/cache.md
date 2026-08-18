@@ -9,7 +9,7 @@ title: Cache
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/cache"
+import "github.com/camark/GoHutools/cache"
 ```
 
 ## 接口
@@ -385,7 +385,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/gongm/gohutool/cache"
+    "github.com/camark/GoHutools/cache"
 )
 
 func main() {

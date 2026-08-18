@@ -97,7 +97,7 @@ func Second(t time.Time) int {
 	return t.Second()
 }
 
-// DayOfWeek returns day of week (1=Sunday, 7=Saturday)
+// DayOfWeek returns day of week (0=Sunday, 6=Saturday, same as time.Weekday)
 func DayOfWeek(t time.Time) int {
 	return int(t.Weekday())
 }

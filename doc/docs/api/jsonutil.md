@@ -9,7 +9,7 @@ JSON 工具包，提供 JSON 序列化、反序列化、路径访问、合并、
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/jsonutil"
+import "github.com/camark/GoHutools/jsonutil"
 ```
 
 ## 函数列表
@@ -449,7 +449,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/jsonutil"
+    "github.com/camark/GoHutools/jsonutil"
 )
 
 func main() {

@@ -11,7 +11,7 @@ title: 安装
 ## 安装命令
 
 ```bash
-go get github.com/gongm/gohutool
+go get github.com/camark/GoHutools
 ```
 
 ## 按需引入
@@ -19,9 +19,9 @@ go get github.com/gongm/gohutool
 每个模块都是独立的包，可以按需引入：
 
 ```go
-import "github.com/gongm/gohutool/strutil"
-import "github.com/gongm/gohutool/collutil"
-import "github.com/gongm/gohutool/crypto"
+import "github.com/camark/GoHutools/strutil"
+import "github.com/camark/GoHutools/collutil"
+import "github.com/camark/GoHutools/crypto"
 ```
 
 ## 依赖说明
@@ -40,7 +40,7 @@ package main
 
 import (
     "fmt"
-    "github.com/gongm/gohutool/strutil"
+    "github.com/camark/GoHutools/strutil"
 )
 
 func main() {

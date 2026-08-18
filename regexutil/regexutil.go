@@ -204,7 +204,7 @@ func Count(s string, pattern string) int {
 // ExtractGroup extracts specific group by index
 func ExtractGroup(s string, pattern string, groupIndex int) string {
 	groups := FindGroups(s, pattern)
-	if groups == nil || groupIndex >= len(groups) {
+	if groups == nil || groupIndex < 0 || groupIndex >= len(groups) {
 		return ""
 	}
 	return groups[groupIndex]
@@ -255,7 +255,7 @@ func CacheSize() int {
 // Common patterns
 const (
 	PatternEmail      = `^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$`
-	PatternURL        = `^(https?|ftp)://[^\s/$.?#].[^\s]*$`
+	PatternURL        = `^(https?|ftp)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]$`
 	PatternIP         = `^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$`
 	PatternIPv4       = `^((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)$`
 	PatternMobile     = `^1[3-9]\d{9}$`

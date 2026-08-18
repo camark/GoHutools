@@ -9,7 +9,7 @@ title: convert - 转换工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/convert"
+import "github.com/camark/GoHutools/convert"
 ```
 
 ## 函数列表

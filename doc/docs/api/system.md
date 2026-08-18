@@ -9,7 +9,7 @@ title: System
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/system"
+import "github.com/camark/GoHutools/system"
 ```
 
 ## 基本信息
@@ -362,7 +362,7 @@ package main
 import (
     "fmt"
 
-    "github.com/gongm/gohutool/system"
+    "github.com/camark/GoHutools/system"
 )
 
 func main() {

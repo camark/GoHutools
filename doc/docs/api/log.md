@@ -9,7 +9,7 @@ title: Log
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/log"
+import "github.com/camark/GoHutools/log"
 ```
 
 ## 日志级别
@@ -289,7 +289,7 @@ package main
 import (
     "os"
 
-    "github.com/gongm/gohutool/log"
+    "github.com/camark/GoHutools/log"
 )
 
 func main() {

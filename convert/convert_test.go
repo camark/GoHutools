@@ -1,6 +1,7 @@
 package convert
 
 import (
+	"math"
 	"testing"
 )
 
@@ -388,6 +389,8 @@ func TestNumberToChinese(t *testing.T) {
 		{100, true, "壹佰"},
 		{1000, true, "壹仟"},
 		{10000, true, "壹萬"},
+		{math.MaxInt64, false, "九百二十二京三千三百七十二兆零三百六十八亿五千四百七十七万五千八百零七"},
+		{math.MinInt64, false, "负九百二十二京三千三百七十二兆零三百六十八亿五千四百七十七万五千八百零八"},
 	}
 
 	for _, tt := range tests {
@@ -418,6 +421,12 @@ func TestChineseToNumber(t *testing.T) {
 		{"壹佰", 100, false},
 		{"壹仟", 1000, false},
 		{"壹萬", 10000, false},
+		{"一京", 10000000000000000, false},
+		{"一京零一", 10000000000000001, false},
+		{"一兆零一", 1000000000001, false},
+		{"一亿二千三百四十五万六千七百八十九", 123456789, false},
+		{"十二亿三千万", 1230000000, false},
+		{"九百二十二京三千三百七十二兆零三百六十八亿五千四百七十七万五千八百零七", math.MaxInt64, false},
 		{"", 0, true},
 		{"负", 0, true},
 	}

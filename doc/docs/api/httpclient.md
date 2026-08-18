@@ -9,7 +9,7 @@ HTTP 客户端工具包，提供链式调用风格的 HTTP 请求构建器，支
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/httpclient"
+import "github.com/camark/GoHutools/httpclient"
 ```
 
 ## 快速函数
@@ -679,7 +679,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/gongm/gohutool/httpclient"
+    "github.com/camark/GoHutools/httpclient"
 )
 
 func main() {

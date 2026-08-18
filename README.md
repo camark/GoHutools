@@ -19,7 +19,7 @@ Go 版本的 [Hutool](https://github.com/dromara/hutool) 工具库，功能对�
 ## 安装
 
 ```bash
-go get github.com/gongm/gohutool
+go get github.com/camark/GoHutools
 ```
 
 ## 模块列表
@@ -86,7 +86,7 @@ go get github.com/gongm/gohutool
 ### 字符串工具 (strutil)
 
 ```go
-import "github.com/gongm/gohutool/strutil"
+import "github.com/camark/GoHutools/strutil"
 
 strutil.IsBlank("")      // true
 strutil.CamelToUnderline("helloWorld")  // "hello_world"
@@ -98,7 +98,7 @@ strutil.Format("Hello {0}!", "World")   // "Hello World!"
 ### 集合工具 (collutil)
 
 ```go
-import "github.com/gongm/gohutool/collutil"
+import "github.com/camark/GoHutools/collutil"
 
 nums := []int{1, 2, 3, 4, 5}
 
@@ -115,7 +115,7 @@ collutil.Sum(nums)  // 15
 ### HTTP 客户端 (httpclient)
 
 ```go
-import "github.com/gongm/gohutool/httpclient"
+import "github.com/camark/GoHutools/httpclient"
 
 // 快捷方法
 resp, err := httpclient.Get("https://api.example.com/users")
@@ -139,7 +139,7 @@ resp, err := httpclient.PostJSON("https://api.example.com/users", map[string]str
 ### 加密工具 (crypto)
 
 ```go
-import "github.com/gongm/gohutool/crypto"
+import "github.com/camark/GoHutools/crypto"
 
 // MD5
 hash := crypto.MD5String("hello")  // "5d41402abc4b2a76b9719d911017c592"
@@ -161,7 +161,7 @@ decrypted, _ := crypto.RSADecrypt(priv, encrypted)
 ### 缓存 (cache)
 
 ```go
-import "github.com/gongm/gohutool/cache"
+import "github.com/camark/GoHutools/cache"
 
 // LRU 缓存
 c := cache.NewLRU(100)
@@ -176,7 +176,7 @@ c.SetWithExpire("key", "value", 1 * time.Minute)
 ### ID 生成 (idutil)
 
 ```go
-import "github.com/gongm/gohutool/idutil"
+import "github.com/camark/GoHutools/idutil"
 
 uuid := idutil.UUID()           // "550e8400-e29b-41d4-a716-446655440000"
 simple := idutil.SimpleUUID()   // "550e8400e29b41d4a716446655440000"
@@ -191,7 +191,7 @@ id, _ := sf.NextID()
 ### 定时任务 (cron)
 
 ```go
-import "github.com/gongm/gohutool/cron"
+import "github.com/camark/GoHutools/cron"
 
 s := cron.New()
 s.AddFunc("*/5 * * * * *", func() {
@@ -204,7 +204,7 @@ defer s.Stop()
 ### 布隆过滤器 (bloom)
 
 ```go
-import "github.com/gongm/gohutool/bloom"
+import "github.com/camark/GoHutools/bloom"
 
 // 预期 1000 个元素，误判率 1%
 f := bloom.New(1000, 0.01)
@@ -218,7 +218,7 @@ f.ContainsString("foo")    // false (可能误判)
 ### 数据校验 (validate)
 
 ```go
-import "github.com/gongm/gohutool/validate"
+import "github.com/camark/GoHutools/validate"
 
 validate.IsEmail("test@example.com")    // true
 validate.IsMobile("13812345678")        // true

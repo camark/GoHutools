@@ -9,7 +9,7 @@ title: collutil - 集合工具
 ## 导入
 
 ```go
-import "github.com/gongm/gohutool/collutil"
+import "github.com/camark/GoHutools/collutil"
 ```
 
 ## 函数列表

@@ -4,6 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"net"
+	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
@@ -59,6 +60,15 @@ func IsEmpty(v interface{}) bool {
 	case bool:
 		return !val
 	default:
+		// Handle concrete slice/map/array/chan types that the type switch
+		// cannot match (e.g. []string, map[string]int)
+		rv := reflect.ValueOf(v)
+		switch rv.Kind() {
+		case reflect.Slice, reflect.Map, reflect.Array, reflect.Chan:
+			return rv.Len() == 0
+		case reflect.Ptr, reflect.Interface:
+			return rv.IsNil()
+		}
 		return false
 	}
 }
@@ -102,8 +112,8 @@ func IsURL(s string) bool {
 		return false
 	}
 
-	// Simple but effective URL validation
-	urlRegex := regexp.MustCompile(`^(https?|ftp)://[^\s/$.?#].[^\s]*$`)
+	// Same pattern as regexutil.PatternURL
+	urlRegex := regexp.MustCompile(`^(https?|ftp)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]$`)
 	return urlRegex.MatchString(strings.ToLower(s))
 }
 
