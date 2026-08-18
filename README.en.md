@@ -92,6 +92,23 @@ go get github.com/camark/GoHutools
 | `ziputil` | ZIP/GZIP/TAR compress & extract | hutool-zip |
 | `jwt` | JWT sign & verify (HS256/384/512) | JWTUtil |
 
+### Phase 8: Core language extensions
+
+| Module | Description | Hutool counterpart |
+|--------|-------------|--------------------|
+| `tuple` | Pair / Triple / Tuple containers | Pair / Tuple |
+| `opt` | Optional pattern (Some/None) | Opt |
+| `urlutil` | URL normalize / build / params | URLUtil / UrlBuilder |
+
+### Phase 9: Additional utilities
+
+| Module | Description | Hutool counterpart |
+|--------|-------------|--------------------|
+| `stopwatch` | Task timer (Start/Stop/Split) | StopWatch |
+| `hashutil` | Classic string hashes (FNV/BKDR/DJB/...) | HashUtil |
+| `boolutil` | Boolean helpers (parse/and/or/xor) | BooleanUtil |
+| `charutil` | Character helpers (isNumber/isEmoji/...) | CharUtil |
+
 ## Examples
 
 ### Strings (strutil)
@@ -240,8 +257,8 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **33 modules**
-- **950+ exported functions and methods**
+- **40 modules**
+- **1000+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 
 ## Development

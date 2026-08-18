@@ -92,6 +92,23 @@ go get github.com/camark/GoHutools
 | `ziputil` | ZIP/GZIP/TAR 压缩解压 | hutool-zip |
 | `jwt` | JWT 签名验签 (HS256/384/512) | JWTUtil |
 
+### Phase 8: 核心语言扩展
+
+| 模块 | 说明 | 对标 Hutool |
+|------|------|------------|
+| `tuple` | Pair/三元组/元组容器 | Pair / Tuple |
+| `opt` | Optional 模式 (Some/None) | Opt |
+| `urlutil` | URL 规范化/构建/参数 | URLUtil / UrlBuilder |
+
+### Phase 9: 基础工具补充
+
+| 模块 | 说明 | 对标 Hutool |
+|------|------|------------|
+| `stopwatch` | 任务计时器 (Start/Stop/Split) | StopWatch |
+| `hashutil` | 经典字符串散列 (FNV/BKDR/DJB/...) | HashUtil |
+| `boolutil` | 布尔工具 (parse/and/or/xor) | BooleanUtil |
+| `charutil` | 字符工具 (isNumber/isEmoji/...) | CharUtil |
+
 ## 使用示例
 
 ### 字符串工具 (strutil)
@@ -240,8 +257,8 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **33 个功能模块**
-- **950+ 个导出函数与方法**
+- **40 个功能模块**
+- **1000+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 
 ## 开发
