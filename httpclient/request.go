@@ -221,8 +221,12 @@ func (r *Request) Do() (*Response, error) {
 	// Handle timeout - use request timeout if set, otherwise use client timeout
 	client := r.client.client
 	if r.timeout > 0 {
+		// preserve the cookie jar (and any redirect policy) when a
+		// per-request timeout forces a fresh http.Client
 		client = &http.Client{
-			Timeout: r.timeout,
+			Timeout:       r.timeout,
+			Jar:           r.client.client.Jar,
+			CheckRedirect: r.client.client.CheckRedirect,
 		}
 	}
 

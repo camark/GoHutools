@@ -2,6 +2,7 @@ package httpclient
 
 import (
 	"net/http"
+	"net/http/cookiejar"
 	"net/url"
 	"time"
 )
@@ -52,6 +53,22 @@ func (c *Client) SetHeaders(headers map[string]string) *Client {
 // SetCookie sets cookie
 func (c *Client) SetCookie(cookie *http.Cookie) *Client {
 	c.cookies = append(c.cookies, cookie)
+	return c
+}
+
+// EnableCookieJar turns on automatic cookie storage and reuse
+// (session support) for this client.
+func (c *Client) EnableCookieJar() *Client {
+	jar, err := cookiejar.New(nil)
+	if err == nil {
+		c.client.Jar = jar
+	}
+	return c
+}
+
+// SetUserAgent sets a default User-Agent header for all requests.
+func (c *Client) SetUserAgent(ua string) *Client {
+	c.headers["User-Agent"] = ua
 	return c
 }
 
