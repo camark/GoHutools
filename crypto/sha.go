@@ -53,6 +53,21 @@ func SHA512Hex(data []byte) string {
 	return hex.EncodeToString(SHA512(data))
 }
 
+// SHA1File computes SHA-1 hash of file
+func SHA1File(path string) (string, error) {
+	return fileDigestHex(path, sha1.New)
+}
+
+// SHA384File computes SHA-384 hash of file
+func SHA384File(path string) (string, error) {
+	return fileDigestHex(path, sha512.New384)
+}
+
+// SHA512File computes SHA-512 hash of file
+func SHA512File(path string) (string, error) {
+	return fileDigestHex(path, sha512.New)
+}
+
 // SHA256File computes SHA-256 hash of file
 func SHA256File(path string) (string, error) {
 	f, err := os.Open(path)
