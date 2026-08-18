@@ -70,6 +70,8 @@ go get github.com/camark/GoHutools
 | `captcha` | 验证码生成 | hutool-captcha |
 | `bloom` | 布隆过滤器 | hutool-bloomFilter |
 | `pool` | 对象池 | Pool |
+| `csv` | CSV 读写封装 | hutool-csv |
+| `csv` | CSV 读写封装 | hutool-csv |
 
 ### Phase 6: 系统与配置
 
@@ -108,6 +110,10 @@ go get github.com/camark/GoHutools
 | `hashutil` | 经典字符串散列 (FNV/BKDR/DJB/...) | HashUtil |
 | `boolutil` | 布尔工具 (parse/and/or/xor) | BooleanUtil |
 | `charutil` | 字符工具 (isNumber/isEmoji/...) | CharUtil |
+| `reflectutil` | 反射工具 (字段读写/方法调用/tag) | ReflectUtil |
+| `reflectutil` | 反射工具 (字段读写/方法调用/tag) | ReflectUtil |
+| `classutil` | 类型工具 (类型名/分类/方法集/可赋值) | ClassUtil |
+| `enumutil` | 枚举工具 (字符串映射/校验) | EnumUtil |
 
 ## 使用示例
 
@@ -257,7 +263,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **40 个功能模块**
+- **44 个功能模块**
 - **1000+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 

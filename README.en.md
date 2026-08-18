@@ -70,6 +70,7 @@ go get github.com/camark/GoHutools
 | `captcha` | Captcha generation | hutool-captcha |
 | `bloom` | Bloom filter | hutool-bloomFilter |
 | `pool` | Object pooling | Pool |
+| `csv` | CSV read/write wrapper | hutool-csv |
 
 ### Phase 6: System & configuration
 
@@ -108,6 +109,9 @@ go get github.com/camark/GoHutools
 | `hashutil` | Classic string hashes (FNV/BKDR/DJB/...) | HashUtil |
 | `boolutil` | Boolean helpers (parse/and/or/xor) | BooleanUtil |
 | `charutil` | Character helpers (isNumber/isEmoji/...) | CharUtil |
+| `reflectutil` | Reflection helpers (field r/w / call / tags) | ReflectUtil |
+| `classutil` | Type helpers (names / kinds / methods / assignability) | ClassUtil |
+| `enumutil` | Enum helpers (string mapping / validation) | EnumUtil |
 
 ## Examples
 
@@ -257,7 +261,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **40 modules**
+- **44 modules**
 - **1000+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 
