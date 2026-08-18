@@ -81,6 +81,17 @@ go get github.com/camark/GoHutools
 | `objectutil` | 对象工具 | ObjectUtil |
 | `regexutil` | 正则工具 | ReUtil |
 
+### Phase 7: 断言、Bean 与并发
+
+| 模块 | 说明 | 对标 Hutool |
+|------|------|------------|
+| `assert` | 断言校验 | Assert |
+| `beanutil` | Bean 拷贝 / Map 互转 | BeanUtil |
+| `netutil` | 网络工具 (内网 IP/本机地址) | NetUtil |
+| `threadutil` | 线程 / goroutine 池 | ThreadUtil |
+| `ziputil` | ZIP/GZIP/TAR 压缩解压 | hutool-zip |
+| `jwt` | JWT 签名验签 (HS256/384/512) | JWTUtil |
+
 ## 使用示例
 
 ### 字符串工具 (strutil)
@@ -229,8 +240,8 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **27 个功能模块**
-- **880+ 个导出函数与方法**
+- **33 个功能模块**
+- **950+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 
 ## 开发

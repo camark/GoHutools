@@ -81,6 +81,17 @@ go get github.com/camark/GoHutools
 | `objectutil` | Object utilities | ObjectUtil |
 | `regexutil` | Regex utilities | ReUtil |
 
+### Phase 7: Assertion, Bean & concurrency
+
+| Module | Description | Hutool counterpart |
+|--------|-------------|--------------------|
+| `assert` | Assertion helpers | Assert |
+| `beanutil` | Bean copy / Map <-> Bean | BeanUtil |
+| `netutil` | Network utilities (internal IP / local addr) | NetUtil |
+| `threadutil` | Thread / goroutine pool | ThreadUtil |
+| `ziputil` | ZIP/GZIP/TAR compress & extract | hutool-zip |
+| `jwt` | JWT sign & verify (HS256/384/512) | JWTUtil |
+
 ## Examples
 
 ### Strings (strutil)
@@ -229,8 +240,8 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **27 modules**
-- **880+ exported functions and methods**
+- **33 modules**
+- **950+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 
 ## Development
