@@ -36,6 +36,7 @@ go get github.com/camark/GoHutools
 | `dateutil` | 日期时间工具 | DateUtil |
 | `convert` | 类型转换 | Convert |
 | `validate` | 数据校验 | Validator |
+| `imgutil` | 图像缩放/裁剪/旋转/格式转换 | ImgUtil |
 
 ### Phase 2: IO 与文件
 
@@ -264,7 +265,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **45 个功能模块**
+- **46 个功能模块**
 - **1000+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 
