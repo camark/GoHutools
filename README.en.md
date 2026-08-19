@@ -37,7 +37,7 @@ go get github.com/camark/GoHutools
 | `convert` | Type conversion | Convert |
 | `validate` | Data validation | Validator |
 | `imgutil` | Image scale/crop/rotate/convert | ImgUtil |
-| `imgutil` | Image scale/crop/rotate/convert | ImgUtil |
+| `tree` | Generic tree building (flat list → forest) | TreeUtil |
 
 ### Phase 2: IO & files
 
@@ -264,7 +264,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **46 modules**
+- **47 modules**
 - **1000+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 
