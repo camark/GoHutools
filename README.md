@@ -60,7 +60,8 @@ go get github.com/camark/GoHutools
 
 | 模块 | 说明 | 对标 Hutool |
 |------|------|------------|
-| `crypto` | 加密解密 (MD5/SHA/AES/RSA/HMAC) | SecureUtil |
+| `crypto` | 加密解密 (MD5/SHA/AES/RSA/HMAC/BCrypt) | SecureUtil |
+| `crypto/bcrypt` | BCrypt 密码哈希 | BCrypt |
 | `codec` | 编解码 (Base64/Hex/URL) | CodecUtil |
 | `idutil` | ID 生成 (UUID/Snowflake/ULID) | IdUtil |
 | `randomutil` | 随机工具 | RandomUtil |
@@ -267,7 +268,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## 统计
 
-- **47 个功能模块**
+- **48 个功能模块**
 - **1000+ 个导出函数与方法**
 - **全面的单元测试覆盖**（CI 含 `-race` 竞态检测与覆盖率统计）
 

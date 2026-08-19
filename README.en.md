@@ -59,7 +59,8 @@ go get github.com/camark/GoHutools
 
 | Module | Description | Hutool counterpart |
 |--------|-------------|--------------------|
-| `crypto` | Encryption (MD5/SHA/AES/RSA/HMAC) | SecureUtil |
+| `crypto` | Encryption (MD5/SHA/AES/RSA/HMAC/BCrypt) | SecureUtil |
+| `crypto/bcrypt` | BCrypt password hashing | BCrypt |
 | `codec` | Encoding/decoding (Base64/Hex/URL) | CodecUtil |
 | `idutil` | ID generation (UUID/Snowflake/ULID) | IdUtil |
 | `randomutil` | Random utilities | RandomUtil |
@@ -264,7 +265,7 @@ validate.IsIPv4("192.168.1.1")          // true
 
 ## Stats
 
-- **47 modules**
+- **48 modules**
 - **1000+ exported functions and methods**
 - **Full unit-test coverage** (CI runs with the `-race` detector and coverage reporting)
 
